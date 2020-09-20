@@ -1,0 +1,58 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Arial";
+	color: #333;
+}
+body {
+	font-size: 15px;
+}
+.tableXY {
+	width: 100%;
+}
+.table {
+	width: 100%;
+	height: 110vh;
+}
+.menu {
+	height: 20%;
+	padding: 1em;
+    background-color: gray
+}
+.end {
+	height: 20%;
+	padding: 1em;
+    background-color: grey
+}
+.margin-cell {
+	width: 3%;
+	padding: 0.4em;
+    background-color: darkgray
+}
+.margin-cell > span {
+	writing-mode: vertical-lr;
+} 
+.data-cell {
+	padding: 1em;
+}
+.main-data:first-child {
+	width: 30%;
+}
+.edge {
+	height: 5em;
+	padding: 2em 1em;
+	background-color: #d1d1d1
+}
+ol, ul {
+	padding: 1em;
+}
+a {
+	margin: 0 0.2em;
+	font-family: Arial;
+	color: red;
+}
+img {
+	height: 200px;
+    
+}
