@@ -8,6 +8,7 @@
 body {
 	font-size: 15px;
 }
+
 .tableXY {
 	width: 100%;
 }
@@ -35,14 +36,16 @@ body {
 } 
 .data-cell {
 	padding: 1em;
+    border-right: 30px solid black;
 }
+
 .main-data:first-child {
 	width: 30%;
 }
 .edge {
 	height: 5em;
 	padding: 2em 1em;
-	background-color: #d1d1d1
+	background-color: yellow;
 }
 ol, ul {
 	padding: 1em;
