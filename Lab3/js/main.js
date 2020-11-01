@@ -108,6 +108,7 @@ const checkCookie = (name) => {
     return (document.cookie.includes(name) && !document.cookie.includes(`${name}=;`));
 }
 
+
 const setCookie = (name, data, expDays) => {
   const d = new Date();
   d.setDate(d.getDate() + expDays);
@@ -118,10 +119,26 @@ const setCookie = (name, data, expDays) => {
    return checkCookie(name) ? document.cookie.split(';').find((c) => c.includes(name)).split('=')[1] : 0;
  }
  
+ function deleteCookies() { 
+    var allCookies = document.cookie.split(';');   
+    for (var i = 0; i < allCookies.length; i++) 
+        document.cookie = allCookies[i] + "=;expires=" 
+        + new Date(0).toUTCString(); 
+} 
+ 
 if(checkCookie('maxDigit'))
     document.querySelector('#numForm').remove();
 document.querySelector('#numBtn').addEventListener('click', () => {
     let maxDigit = findMaxDigit('numInput');
     alert(`Max digits: ${maxDigit}`);
     setCookie('maxDigit', maxDigit, 2);
+    
+    var toDelete=confirm("Do you want to delete cookie with reload?");
+    if(toDelete){
+
+    var doneRestart=confirm("Press ok to restart page");
+     if(doneRestart)document.location.reload();
+     deleteCookies("f");
+}
+
 })
