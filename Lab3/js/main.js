@@ -127,7 +127,7 @@ const setCookie = (name, data, expDays) => {
 } 
  
 if(checkCookie('maxDigit'))
-    document.querySelector('#numForm').remove();
+    //document.querySelector('#numForm').remove();
 document.querySelector('#numBtn').addEventListener('click', () => {
     let maxDigit = findMaxDigit('numInput');
     alert(`Max digits: ${maxDigit}`);
