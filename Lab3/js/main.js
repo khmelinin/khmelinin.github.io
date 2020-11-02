@@ -35,6 +35,10 @@ const findMaxDigit = (inputId) => {
 }
 
 // task 4
+if(localStorage.getItem('block6RadioLocalStorage')!=null)
+    {
+        document.getElementById('block6').style.fontWeight=localStorage.getItem('block6RadioLocalStorage');
+    }
 btn.onclick = function () {
       const rbs = document.querySelectorAll('input[name="choise"]');
       let selectedValue;
@@ -44,9 +48,11 @@ btn.onclick = function () {
               switch (selectedValue) {
                 case 'bolder':
                   document.getElementById('block6').style.fontWeight='bolder';
+                      localStorage.setItem('block6RadioLocalStorage',`${rb.value}`);
                   break;
                 case 'normal':
                   document.getElementById('block6').style.fontWeight='normal';
+                      localStorage.setItem('block6RadioLocalStorage',`${rb.value}`);
                   break;
                 default:
                   document.getElementById('block6').style.fontWeight='normal';
@@ -68,12 +74,31 @@ document.getElementById('textBlock').onscroll = function(){
 */
 
 //task 6
+
+function isHTML(str) {
+  var doc = new DOMParser().parseFromString(str, "text/html");
+  return Array.from(doc.body.childNodes).some(node => node.nodeType === 1);
+}
+
 const initialEditableBlocks = () => {
   Array.from(document.getElementsByClassName('editArea')).map((area) => {
     area.addEventListener('change', (event) => {
       const newContent = event.target.value;
       localStorage.setItem(`${event.target.parentNode.id}Content`, newContent);
       event.target.parentNode.children[0].innerHTML = newContent;
+        
+        
+        
+        
+        
+        
+        var myContent = localStorage.getItem(storageId);
+  //validation?!
+  if (isHTML(myContent))
+          document.getElementById(text).innerHTML = myContent;
+  else{
+    document.getElementById(text).innerText = myContent;
+      }
      })
   })
   Array.from(document.getElementsByClassName('editBtn')).map((btn) => {
@@ -134,7 +159,6 @@ document.querySelector('#numBtn').addEventListener('click', () => {
     
     var toDelete=confirm("Do you want to delete cookie with reload?");
     if(toDelete){
-
     var doneRestart=confirm("Press ok to restart page");
      if(doneRestart)document.location.reload();
      deleteCookies("f");
