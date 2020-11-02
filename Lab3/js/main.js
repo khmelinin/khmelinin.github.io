@@ -105,7 +105,7 @@ initialEditableBlocks();
 
 // cookie (task 3)
 const checkCookie = (name) => {
-    return (document.cookie.includes(name) && !document.cookie.includes(`${name}=;`));
+    return (document.cookie.includes(name) && document.cookie!=`${name}=`);
 }
 
 
@@ -126,8 +126,7 @@ const setCookie = (name, data, expDays) => {
         + new Date(0).toUTCString(); 
 } 
  
-if(checkCookie('maxDigit'))
-    //document.querySelector('#numForm').remove();
+
 document.querySelector('#numBtn').addEventListener('click', () => {
     let maxDigit = findMaxDigit('numInput');
     alert(`Max digits: ${maxDigit}`);
