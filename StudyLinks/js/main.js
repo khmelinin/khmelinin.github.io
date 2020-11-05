@@ -97,7 +97,7 @@ function date_time3()
         //var seconds = zero_first_format(current_datetime.getSeconds());
         
 
-        return " | "+hours+":"+minutes+" | to update time - reload page :/";
+        return " | "+hours+":"+minutes+" | ";
     }
 
 document.getElementById("time1").innerHTML = date_time1();
