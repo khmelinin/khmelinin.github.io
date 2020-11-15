@@ -128,19 +128,19 @@ document.addEventListener('submit',function(event)
     });
 
 // task 4
-function kekFunc(str)
+function kekFunc()
 {
-    console.log(str);
+           // code code code;
 }
 async function callFunc(...functions)
 {
     for (let index = 0; index < functions.length; index++)
     {
         await functions[index]();
-        console.log(`The ${index+1} function has finished its work`) //`
+        console.log(`The function №${index+1} has finished its work successfully.`)
     }
 }
-callFunc(kekFunc("hello1"), function(){return sleep(10000)}, kekFunc("hello2"))
+callFunc(kekFunc, function(){return sleep(5000)});
 
 // task 5
 function createSortFormTo(blockName)
