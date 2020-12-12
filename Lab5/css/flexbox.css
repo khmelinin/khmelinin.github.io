@@ -38,6 +38,7 @@ body {
 	padding: 1em 1em;
 	background-color: lightgray;
     text-align: right;
+    overflow: scroll;
 }
 .edge-section {
 	width: 48vw;
