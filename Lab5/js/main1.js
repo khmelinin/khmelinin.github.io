@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		document.getElementById("anim1").style.display = "block";
 		animType = 1;
 	});
-	let width_c, height_c, square_c, square_c1;
+	let width_c, height_c, square_c;
 	document.getElementById("play2").addEventListener("click", () => {
 		openWork();
 		document.getElementById("anim1").style.display = "none";
@@ -14,10 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		animType = 2;
 		width_c = $canvas.width = document.getElementById('anim2').offsetWidth;
 		height_c = $canvas.height = document.getElementById('anim2').offsetHeight;
-		square_c = new Square(15, Math.floor(width_c * Math.random()), height_c-15, width_c, height_c, ctx);
-		square_c.draw();
-        square_c1 = new Square(15, width_c - 15, Math.floor(Math.random()*height_c), width_c, height_c, ctx);
-		square_c1.draw1()
+		square_c = new Square(15, width_c - 15, 0, width_c, height_c, ctx);
+		square_c.draw()
 	});
 	document.getElementById("closeWork").addEventListener("click", () => {
 		closeWork();
@@ -44,26 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
 		velX: random(-1, 3), 
 		velY: random(-1, 3) 
 	};
-    let $square1 = {
-		elem: document.getElementById('square1'),
-		x: 0,
-		y: 0,
-		velX: random(-1, 3), 
-		velY: random(-1, 3) 
-	};
 	let controlState = 0; // 0 - stoped, 1 - playing, 2 - ready for reload
 	let squareInt;
-	let squareInt1;
-    
-// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 	document.getElementById('mainControl').addEventListener("click", (event) => {
 		if(controlState === 0){
 			controlState = 1;
 			event.target.innerHTML = "&#x25A0;";
 			if(animType === 1) playJsAnim();
-			else if(animType === 2) {
-                playCanvasAnim(square_c, square_c1, width_c, height_c);
-            }
+			else if(animType === 2) playCanvasAnim(square_c, width_c, height_c);
 		} else if(controlState === 1) {
 			controlState = 0;
 			event.target.innerHTML = "&#9658;";
@@ -75,8 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			if(animType === 1) reloadJsAnim();
 			else if(animType === 2) reloadCanvasAnim(square_c, width_c, height_c);
 		}
-        
-        
 	})
 
 	// functions for element based animation
@@ -85,17 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		const width = document.getElementById('anim1').offsetWidth;
 		const height = document.getElementById('anim1').offsetHeight;
 		squareInt = setInterval(() => {
-			moveSquare($square, height, $square1);
-		}, 15)
-        squareInt1 = setInterval(() => {
-			moveSquare1($square1, width);
+			moveSquare($square, width, height);
 		}, 15)
 	}
 
 	const stopJsAnim = () => {
 		document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Stopped animation'}}))
 		clearInterval(squareInt);
-		clearInterval(squareInt1);
 	}
 
 	const reloadJsAnim = () => {
@@ -103,26 +84,18 @@ document.addEventListener('DOMContentLoaded', () => {
 		$square = {...$square, x: 0, y: 0, velX: random(-1,2), velY: random(-1,2)};
 		$square.elem.style.top = '0px';
 		$square.elem.style.right = '0px';
-        
-        document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Reloaded animation'}}))
-		$square1 = {...$square1, x: 0, y: 0, velX: random(-1,2), velY: random(-1,2)};
-		$square1.elem.style.top = '0px';
-		$square1.elem.style.right = '0px';
 	}
 
 	// functions for canvas animation
 	let frame;
-    
-	const playCanvasAnim = (square, square1, width, height) => {
+	const playCanvasAnim = (square, width, height) => {
 		document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Launched animation'}}))
 		const pattern = ctx.createPattern(texture, 'repeat');
 		frame = () => {
 			ctx.fillStyle = pattern;
 			ctx.fillRect(0, 0, width, height);
 			square.draw();
-			square1.draw1();
 			square.updatePosition();
-			square1.updatePosition1();
 			requestAnimationFrame(frame);
 		}
 		frame();
@@ -141,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	document.addEventListener('leftArea', () => {
 		clearInterval(squareInt);
-		clearInterval(squareInt1);
 		frame = _=>{};
 		controlState = 2;
 		document.getElementById('mainControl').innerHTML = "&#8634;";
@@ -174,36 +146,27 @@ const random = (min, max) => {
 
 let leftArea = new Event('leftArea');
 
-const moveSquare = (square, height, square1) => {
-	
-	if(square.y + square.elem.offsetHeight + 5 >= height){
+const moveSquare = (square, width, height) => {
+	if(square.x + square.elem.offsetWidth >= width) {
+		document.dispatchEvent(leftArea);
+		document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Left the area'}}))
+	}
+	if(square.x < 0) {
+		square.velX = -(square.velX)
+		document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Touched right border'}}))
+	}
+	if(square.y + square.elem.offsetHeight + 5 >= height) {
 		square.velY = -(square.velY)
 		document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Touched bottom border'}}))
-        }
-
-
+	}
 	if(square.y < 0) {
 		square.velY = -(square.velY)
 		document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Touched top border'}}))
-        if(square1.x <= square.x+3){
-            document.dispatchEvent(leftArea);
-        }
 	}
+	square.x += square.velX;
 	square.y += square.velY;
+	square.elem.style.right = `${square.x}px`;
 	square.elem.style.top = `${square.y}px`;
-}
-const moveSquare1 = (square1, width) => {
-	if(square1.x + square1.elem.offsetWidth >= width) {
-		square1.velX = -(square1.velX)
-		document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Touched bottom border'}}))
-	}
-	if(square1.x+15 < 0) {
-		square1.velX = -(square1.velX)
-		document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Touched top border'}}))
-	}
-	square1.x += square1.velX;
-	square1.elem.style.left = `${square1.x}px`;
-	
 }
 
 class Square {
@@ -219,36 +182,28 @@ class Square {
 	}
 
 	updatePosition () {
+		if(this.x + this.size <= 0) {
+			document.dispatchEvent(leftArea);
+			document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Left the area'}}))
+		}
+	    if(this.x + this.size > this.canvasWidth) {
+	    	this.velX =- (this.velX);
+	    	document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Touched right border'}}))
+	    }
         if(this.y + this.size >= this.canvasHeight) { 
         	this.velY = -(this.velY);
         	document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Touched bottom border'}}))
-        
         }
 	    if(this.y < 0) { 
 	    	this.velY = -(this.velY);
 	    	document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Touched top border'}}))
 	    }
-	    this.y += this.velY*6;
-	}
-    
-    updatePosition1 () {
-		if(this.x + this.size >= this.canvasWidth) { 
-        	this.velX = -(this.velX);
-        	document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Touched right border'}}))
-        }
-	    if(this.x < 0) { 
-	    	this.velX = -(this.velX);
-	    	document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Touched left border'}}))
-	    }
-	    this.x += this.velX*6;
+	    this.x += this.velX;
+	    this.y += this.velY;
 	}
 
 	draw () {
-		this.ctx.fillStyle = "rgba(254, 154, 54, 1)";
-		this.ctx.fillRect(this.x, this.y, this.size, this.size);
-	}
-    draw1 () {
-		this.ctx.fillStyle = "rgba(0, 0, 254, 1)";
+		this.ctx.fillStyle = "rgba(90, 243, 90, 1)";
 		this.ctx.fillRect(this.x, this.y, this.size, this.size);
 	}
 }

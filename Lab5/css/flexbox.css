@@ -127,9 +127,17 @@ img {
 	overflow: hidden;
 }
 #square {
-	width: 10px;
-	height: 10px;
-	background-color: #5af35a;
+	width: 15px;
+	height: 15px;
+	background-color: orange;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+#square1 {
+	width: 15px;
+	height: 15px;
+	background-color: blue;
 	position: absolute;
 	top: 0;
 	right: 0;
