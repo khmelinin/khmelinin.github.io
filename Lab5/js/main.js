@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			ctx.fillRect(0, 0, width, height);
 			square.draw();
 			square1.draw1();
-			square.updatePosition();
+			square.updatePosition(square1);
 			square1.updatePosition1();
 			requestAnimationFrame(frame);
 		}
@@ -211,14 +211,17 @@ class Square {
 		this.size = size;
 		this.x = x;
 		this.y = y;
-		this.velX = random(-1, 3);
-		this.velY = random(-1, 3);
+		this.velX = random(1, 3);
+		this.velY = random(1, 3);
 		this.canvasHeight = canvasHeight;
 		this.canvasWidth = canvasWidth;
 		this.ctx = ctx;
 	}
 
-	updatePosition () {
+	updatePosition (square1) {
+        if(this.y <= square1.y + square1.size && square1.y<= this.y + this.size && this.x <= square1.x + square1.size && square1.x<= this.x + this.size){
+            document.dispatchEvent(leftArea);
+        }
         if(this.y + this.size >= this.canvasHeight) { 
         	this.velY = -(this.velY);
         	document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Touched bottom border'}}))
