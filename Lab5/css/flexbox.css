@@ -104,7 +104,7 @@ img {
 .play {
 	padding: 0.2em 0.4em;
 	font-size: 2em;
-	color: green;
+	color: orange;
 	cursor: pointer;
 }
 .modal {
@@ -115,8 +115,8 @@ img {
 	align-items: center;
 	width: 90%;
 	height: 90%;
-	box-shadow: 0 0 10px #888;
-	background-color: #fff;
+	box-shadow: 0 0 10px gray;
+	background-color: darkgray;
 	z-index: 10;
 }
 #anim1, #anim2 {
@@ -162,10 +162,10 @@ img {
 	margin-right: 5px;
 }
 #mainControl {
-	color: #228f12;
+	color: orange;
 }
 #closeAnim {
-	color: #f21232;
+	color: red;
 }
 #messages {
 	display: flex;

@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const $canvas = document.getElementById("anim2");
 	const ctx = $canvas.getContext('2d');
-	const texture = new Image();
+	const texture = new Image(); 
 	texture.src = "./img.png";
 
 
@@ -59,19 +59,19 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('mainControl').addEventListener("click", (event) => {
 		if(controlState === 0){
 			controlState = 1;
-			event.target.innerHTML = "&#x25A0;";
+			event.target.innerHTML = "||";
 			if(animType === 1) playJsAnim();
 			else if(animType === 2) {
                 playCanvasAnim(square_c, square_c1, width_c, height_c);
             }
 		} else if(controlState === 1) {
 			controlState = 0;
-			event.target.innerHTML = "&#9658;";
+			event.target.innerHTML = ">";
 			if(animType === 1) stopJsAnim();
 			else if(animType === 2) stopCanvasAnim();
 		} else if(controlState === 2) {
 			controlState = 0;
-			event.target.innerHTML = "&#9658;";
+			event.target.innerHTML = "x";
 			if(animType === 1) reloadJsAnim();
 			else if(animType === 2) reloadCanvasAnim(square_c, width_c, height_c);
 		}
