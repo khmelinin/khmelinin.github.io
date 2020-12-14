@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		openWork();
 		document.getElementById("anim2").style.display = "none";
 		document.getElementById("anim1").style.display = "block";
+        $square.x=random(15, document.getElementById('anim1').offsetWidth-15);
+        $square1.y=random(15, document.getElementById('anim1').offsetHeight-15);
 		animType = 1;
 	});
 	let width_c, height_c, square_c, square_c1;
@@ -51,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		velX: random(1, 3), 
 		velY: random(1, 3) 
 	};
+    
 	let controlState = 0; // 0 - stoped, 1 - playing, 2 - ready for reload
 	let squareInt;
 	let squareInt1;
@@ -72,7 +75,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		} else if(controlState === 2) {
 			controlState = 0;
 			event.target.innerHTML = "x";
-			if(animType === 1) reloadJsAnim();
+			if(animType === 1) {
+        
+                reloadJsAnim();
+                $square.x=random(15, document.getElementById('anim1').offsetWidth-15);
+                $square1.y=random(15, document.getElementById('anim1').offsetHeight-15);
+        }
 			else if(animType === 2) reloadCanvasAnim(square_c, width_c, height_c);
 		}
         
@@ -84,8 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		document.dispatchEvent(new CustomEvent('animMessage', {detail: {message: 'Launched animation'}}))
 		const width = document.getElementById('anim1').offsetWidth;
 		const height = document.getElementById('anim1').offsetHeight;
-        $square.x=random(15, width-15);
-        $square1.y=random(15, height-15);
+        
 		squareInt = setInterval(() => {
 			moveSquare($square, height, $square1);
 		}, 15)
