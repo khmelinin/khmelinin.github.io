@@ -7,16 +7,28 @@ function zero_first_format(value)
         return value;
     }
 
+function which_week(){
+    calendar = Calendar.getInstance();
+    var day = calendar.get(Calendar.WEEK_OF_YEAR);
+    if(day%2 == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 function selectWeek(week)
 {
+    if(which_week)
     switch(week){
             
             case 1:
                 document.getElementById("Mon1").style.color="red";
                 document.getElementById("Mon1").style.textDecoration="underline";
-                
-                document.getElementById("Mon2").style.color="red";
-                document.getElementById("Mon2").style.textDecoration="underline";
+                document.getElementById("divMon1").style.border="solid 1px black";
                 
                 week="Monday";
                 break;
@@ -24,9 +36,7 @@ function selectWeek(week)
             case 2:
                 document.getElementById("Tue1").style.color="red";
                 document.getElementById("Tue1").style.textDecoration="underline";
-                
-                document.getElementById("Tue2").style.color="red";
-                document.getElementById("Tue2").style.textDecoration="underline";
+                document.getElementById("divTue1").style.border="solid 1px black";
                 
                 week="Tuesday";
                 break;
@@ -34,9 +44,7 @@ function selectWeek(week)
             case 3:
                 document.getElementById("Wed1").style.color="red";
                 document.getElementById("Wed1").style.textDecoration="underline";
-                
-                document.getElementById("Wed2").style.color="red";
-                document.getElementById("Wed2").style.textDecoration="underline";
+                document.getElementById("divWed1").style.border="solid 1px black";
                 
                 week="Wednesday";
                 break;
@@ -44,9 +52,7 @@ function selectWeek(week)
             case 4:
                 document.getElementById("Thu1").style.color="red";
                 document.getElementById("Thu1").style.textDecoration="underline";
-                
-                document.getElementById("Thu2").style.color="red";
-                document.getElementById("Thu2").style.textDecoration="underline";
+                document.getElementById("divThu1").style.border="solid 1px black";
                 
                 week="Thursday";
                 break;
@@ -54,9 +60,55 @@ function selectWeek(week)
             case 5:
                 document.getElementById("Fri1").style.color="red";
                 document.getElementById("Fri1").style.textDecoration="underline";
+                document.getElementById("divFri1").style.border="solid 1px black";
                 
+                week="Friday";
+                break;
+            
+            
+            default:
+                week="WeekEnds";
+                break;
+        }
+        else
+        switch(week){
+            
+            case 1:
+                document.getElementById("Mon2").style.color="red";
+                document.getElementById("Mon2").style.textDecoration="underline";
+                document.getElementById("divMon2").style.border="solid 1px black";
+                
+                week="Monday";
+                break;
+            
+            case 2:
+                document.getElementById("Tue2").style.color="red";
+                document.getElementById("Tue2").style.textDecoration="underline";
+                document.getElementById("divTue2").style.border="solid 1px black";
+                
+                week="Tuesday";
+                break;
+            
+            case 3:
+                document.getElementById("Wed2").style.color="red";
+                document.getElementById("Wed2").style.textDecoration="underline";
+                document.getElementById("divWed2").style.border="solid 1px black";
+                
+                week="Wednesday";
+                break;
+            
+            case 4:
+                document.getElementById("Thu2").style.color="red";
+                document.getElementById("Thu2").style.textDecoration="underline";
+                document.getElementById("divThu2").style.border="solid 1px black";
+                
+                week="Thursday";
+                break;
+            
+            case 5:
                 document.getElementById("Fri2").style.color="red";
                 document.getElementById("Fri2").style.textDecoration="underline";
+                document.getElementById("divFri2").style.border="solid 1px black";
                 
                 week="Friday";
                 break;
@@ -103,3 +155,13 @@ function date_time3()
 document.getElementById("time1").innerHTML = date_time1();
 document.getElementById("time2").innerHTML = date_time2();
 document.getElementById("time3").innerHTML = date_time3();
+
+$( "a:contains('Лек')" ).css( "text-shadow", "lightgreen 0.5px 0.5px 0, lightgreen -0.5px -0.5px 0, lightgreen -0.5px 0.5px 0, lightgreen 0.5px -0.5px 0" );
+$( "a:contains('Лек')" ).css( "color", "black" );
+
+$( "a:contains('Прак')" ).css( "text-shadow", "gold 0.5px 0.5px 0, gold -0.5px -0.5px 0, gold -0.5px 0.5px 0, gold 0.5px -0.5px 0" );
+$( "a:contains('Прак')" ).css( "color", "black" );
+
+$( "a:contains('Лаб')" ).css( "text-shadow", "red 0.5px 0.5px 0, red -0.5px -0.5px 0, red -0.5px 1px 0, red 0.5px -0.5px 0" );
+$( "a:contains('Лаб')" ).css( "color", "black" );
+
