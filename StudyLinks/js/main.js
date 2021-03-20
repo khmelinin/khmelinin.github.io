@@ -156,12 +156,12 @@ document.getElementById("time1").innerHTML = date_time1();
 document.getElementById("time2").innerHTML = date_time2();
 document.getElementById("time3").innerHTML = date_time3();
 
-$( "a:contains('Лек')" ).css( "text-shadow", "lightgreen 0.5px 0.5px 0, lightgreen -0.5px -0.5px 0, lightgreen -0.5px 0.5px 0, lightgreen 0.5px -0.5px 0" );
+$( "a:contains('Лек')" ).css( "text-shadow", "lightgreen 0.4px 0.4px 0, lightgreen -0.4px -0.4px 0, lightgreen -0.4px 0.4px 0, lightgreen 0.4px -0.4px 0" );
 $( "a:contains('Лек')" ).css( "color", "black" );
 
-$( "a:contains('Прак')" ).css( "text-shadow", "gold 0.5px 0.5px 0, gold -0.5px -0.5px 0, gold -0.5px 0.5px 0, gold 0.5px -0.5px 0" );
+$( "a:contains('Прак')" ).css( "text-shadow", "gold 0.4px 0.4px 0, gold -0.4px -0.4px 0, gold -0.4px 0.4px 0, gold 0.4px -0.4px 0" );
 $( "a:contains('Прак')" ).css( "color", "black" );
 
-$( "a:contains('Лаб')" ).css( "text-shadow", "red 0.5px 0.5px 0, red -0.5px -0.5px 0, red -0.5px 1px 0, red 0.5px -0.5px 0" );
+$( "a:contains('Лаб')" ).css( "text-shadow", "red 0.4px 0.4px 0, red -0.4px -0.4px 0, red -0.4px 1px 0, red 0.4px -0.4px 0" );
 $( "a:contains('Лаб')" ).css( "color", "black" );
 
