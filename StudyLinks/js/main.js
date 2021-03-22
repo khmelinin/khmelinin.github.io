@@ -22,101 +22,101 @@ function which_week(){
 
 function selectWeek(week)
 {
-    if(which_week)
-    switch(week){
-            
-            case 1:
-                document.getElementById("Mon1").style.color="red";
-                document.getElementById("Mon1").style.textDecoration="underline";
-                document.getElementById("divMon1").style.border="solid 1px black";
+    if(!which_week)
+    {
+        document.getElementById("Week1").style.color="red";
+        document.getElementById("Week1").style.textDecoration="underline";
+        switch(week){
                 
-                week="Monday";
-                break;
-            
-            case 2:
-                document.getElementById("Tue1").style.color="red";
-                document.getElementById("Tue1").style.textDecoration="underline";
-                document.getElementById("divTue1").style.border="solid 1px black";
+                case 1:
+                    document.getElementById("Mon1").style.color="red";
+                    document.getElementById("Mon1").style.textDecoration="underline";
+                    
+                    week="Monday";
+                    break;
                 
-                week="Tuesday";
-                break;
-            
-            case 3:
-                document.getElementById("Wed1").style.color="red";
-                document.getElementById("Wed1").style.textDecoration="underline";
-                document.getElementById("divWed1").style.border="solid 1px black";
+                case 2:
+                    document.getElementById("Tue1").style.color="red";
+                    document.getElementById("Tue1").style.textDecoration="underline";
+                    
+                    week="Tuesday";
+                    break;
                 
-                week="Wednesday";
-                break;
-            
-            case 4:
-                document.getElementById("Thu1").style.color="red";
-                document.getElementById("Thu1").style.textDecoration="underline";
-                document.getElementById("divThu1").style.border="solid 1px black";
+                case 3:
+                    document.getElementById("Wed1").style.color="red";
+                    document.getElementById("Wed1").style.textDecoration="underline";
+                    
+                    week="Wednesday";
+                    break;
                 
-                week="Thursday";
-                break;
-            
-            case 5:
-                document.getElementById("Fri1").style.color="red";
-                document.getElementById("Fri1").style.textDecoration="underline";
-                document.getElementById("divFri1").style.border="solid 1px black";
+                case 4:
+                    document.getElementById("Thu1").style.color="red";
+                    document.getElementById("Thu1").style.textDecoration="underline";
+                    
+                    week="Thursday";
+                    break;
                 
-                week="Friday";
-                break;
-            
-            
-            default:
-                week="WeekEnds";
-                break;
+                case 5:
+                    document.getElementById("Fri1").style.color="red";
+                    document.getElementById("Fri1").style.textDecoration="underline";
+                    
+                    week="Friday";
+                    break;
+                
+                
+                default:
+                    week="WeekEnds";
+                    break;
+            }
         }
         else
-        switch(week){
-            
-            case 1:
-                document.getElementById("Mon2").style.color="red";
-                document.getElementById("Mon2").style.textDecoration="underline";
-                document.getElementById("divMon2").style.border="solid 1px black";
+        {
+            document.getElementById("Week2").style.color="red";
+            document.getElementById("Week2").style.textDecoration="underline";
+            switch(week){
                 
-                week="Monday";
-                break;
-            
-            case 2:
-                document.getElementById("Tue2").style.color="red";
-                document.getElementById("Tue2").style.textDecoration="underline";
-                document.getElementById("divTue2").style.border="solid 1px black";
+                case 1:
+                    document.getElementById("Mon2").style.color="red";
+                    document.getElementById("Mon2").style.textDecoration="underline";
+                    document.getElementById("divMon2").style.backgroundColor="lightgrey";
+
+                    
+                    week="Monday";
+                    break;
                 
-                week="Tuesday";
-                break;
-            
-            case 3:
-                document.getElementById("Wed2").style.color="red";
-                document.getElementById("Wed2").style.textDecoration="underline";
-                document.getElementById("divWed2").style.border="solid 1px black";
+                case 2:
+                    document.getElementById("Tue2").style.color="red";
+                    document.getElementById("Tue2").style.textDecoration="underline";
+                    
+                    week="Tuesday";
+                    break;
                 
-                week="Wednesday";
-                break;
-            
-            case 4:
-                document.getElementById("Thu2").style.color="red";
-                document.getElementById("Thu2").style.textDecoration="underline";
-                document.getElementById("divThu2").style.border="solid 1px black";
+                case 3:
+                    document.getElementById("Wed2").style.color="red";
+                    document.getElementById("Wed2").style.textDecoration="underline";
+                    
+                    week="Wednesday";
+                    break;
                 
-                week="Thursday";
-                break;
-            
-            case 5:
-                document.getElementById("Fri2").style.color="red";
-                document.getElementById("Fri2").style.textDecoration="underline";
-                document.getElementById("divFri2").style.border="solid 1px black";
+                case 4:
+                    document.getElementById("Thu2").style.color="red";
+                    document.getElementById("Thu2").style.textDecoration="underline";
+                    
+                    week="Thursday";
+                    break;
                 
-                week="Friday";
-                break;
-            
-            
-            default:
-                week="WeekEnds";
-                break;
+                case 5:
+                    document.getElementById("Fri2").style.color="red";
+                    document.getElementById("Fri2").style.textDecoration="underline";
+                    
+                    week="Friday";
+                    break;
+                
+                
+                default:
+                    week="WeekEnds";
+                    break;
+            }
         }
     return week;
 }
