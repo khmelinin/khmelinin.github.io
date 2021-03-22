@@ -25,7 +25,7 @@ function selectWeek(week)
     if(!which_week)
     {
         document.getElementById("Week1").style.color="red";
-        document.getElementById("Week1").style.textDecoration="underline";
+        document.getElementById("Week1").style.textShadow= "black 1.3px 1.3px 0, black -1.3px -1.3px 0, black -1.3px 1.3px 0, black 1.3px -1.3px 0";
         switch(week){
                 
                 case 1:
@@ -72,7 +72,7 @@ function selectWeek(week)
         else
         {
             document.getElementById("Week2").style.color="red";
-            document.getElementById("Week2").style.textDecoration="underline";
+            document.getElementById("Week2").style.textShadow= "black 1.3px 1.3px 0, black -1.3px -1.3px 0, black -1.3px 1.3px 0, black 1.3px -1.3px 0";
             switch(week){
                 
                 case 1:
