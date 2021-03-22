@@ -102,7 +102,7 @@ function selectWeek(week)
 function week_style(weekName){
     document.getElementById(weekName).style.color="red";
     document.getElementById(weekName).style.textDecoration="underline";
-    document.getElementById("div"+weekName).style.marginRight = "49%"
+    document.getElementById("div"+weekName).style.marginRight = "44%"
     document.getElementById("div"+weekName).style.backgroundColor="rgb(230,230,230)";
     document.getElementById("div"+weekName).style.border = "black solid 1px";
 }
