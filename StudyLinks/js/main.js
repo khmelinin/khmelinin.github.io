@@ -103,7 +103,7 @@ function week_style(weekName){
     document.getElementById(weekName).style.color="red";
     document.getElementById(weekName).style.textDecoration="underline";
     document.getElementById("div"+weekName).style.marginRight = "49%"
-    document.getElementById("div"+weekName).style.backgroundColor="lightgrey";
+    document.getElementById("div"+weekName).style.backgroundColor="rgb(230,230,230)";
     document.getElementById("div"+weekName).style.border = "black solid 1px";
 }
 
@@ -148,6 +148,6 @@ $( "a:contains('Лек')" ).css( "color", "black" );
 $( "a:contains('Прак')" ).css( "text-shadow", "gold 0.4px 0.4px 0, gold -0.4px -0.4px 0, gold -0.4px 0.4px 0, gold 0.4px -0.4px 0" );
 $( "a:contains('Прак')" ).css( "color", "black" );
 
-$( "a:contains('Лаб')" ).css( "text-shadow", "red 0.4px 0.4px 0, red -0.4px -0.4px 0, red -0.4px 1px 0, red 0.4px -0.4px 0" );
-$( "a:contains('Лаб')" ).css( "color", "black" );
+$( "a:contains('Лаб')" ).css( "text-shadow", "red 0.3px 0.3px 0, red -0.3px -0.3px 0, red -0.3px 1px 0, red 0.3px -0.3px 0" );
+$( "a:contains('Лаб')" ).css( "color", "rgb(40,40,40)" );
 
