@@ -29,37 +29,27 @@ function selectWeek(week)
         switch(week){
                 
                 case 1:
-                    document.getElementById("Mon1").style.color="red";
-                    document.getElementById("Mon1").style.textDecoration="underline";
-                    
+                    week_style("Mon1");
                     week="Monday";
                     break;
                 
                 case 2:
-                    document.getElementById("Tue1").style.color="red";
-                    document.getElementById("Tue1").style.textDecoration="underline";
-                    
+                    week_style("Tue1");
                     week="Tuesday";
                     break;
                 
                 case 3:
-                    document.getElementById("Wed1").style.color="red";
-                    document.getElementById("Wed1").style.textDecoration="underline";
-                    
+                    week_style("Wed1");
                     week="Wednesday";
                     break;
                 
                 case 4:
-                    document.getElementById("Thu1").style.color="red";
-                    document.getElementById("Thu1").style.textDecoration="underline";
-                    
+                    week_style("Thu1");
                     week="Thursday";
                     break;
                 
                 case 5:
-                    document.getElementById("Fri1").style.color="red";
-                    document.getElementById("Fri1").style.textDecoration="underline";
-                    
+                    week_style("Fri1");
                     week="Friday";
                     break;
                 
@@ -76,39 +66,27 @@ function selectWeek(week)
             switch(week){
                 
                 case 1:
-                    document.getElementById("Mon2").style.color="red";
-                    document.getElementById("Mon2").style.textDecoration="underline";
-                    document.getElementById("divMon2").style.backgroundColor="lightgrey";
-
-                    
+                    week_style("Mon2");
                     week="Monday";
                     break;
                 
                 case 2:
-                    document.getElementById("Tue2").style.color="red";
-                    document.getElementById("Tue2").style.textDecoration="underline";
-                    
+                    week_style("Tue2");
                     week="Tuesday";
                     break;
                 
                 case 3:
-                    document.getElementById("Wed2").style.color="red";
-                    document.getElementById("Wed2").style.textDecoration="underline";
-                    
+                    week_style("Wed2");
                     week="Wednesday";
                     break;
                 
                 case 4:
-                    document.getElementById("Thu2").style.color="red";
-                    document.getElementById("Thu2").style.textDecoration="underline";
-                    
+                    week_style("Thu2");
                     week="Thursday";
                     break;
                 
                 case 5:
-                    document.getElementById("Fri2").style.color="red";
-                    document.getElementById("Fri2").style.textDecoration="underline";
-                    
+                    week_style("Fri2");
                     week="Friday";
                     break;
                 
@@ -119,6 +97,14 @@ function selectWeek(week)
             }
         }
     return week;
+}
+
+function week_style(weekName){
+    document.getElementById(weekName).style.color="red";
+    document.getElementById(weekName).style.textDecoration="underline";
+    document.getElementById("div"+weekName).style.marginRight = "49%"
+    document.getElementById("div"+weekName).style.backgroundColor="lightgrey";
+    document.getElementById("div"+weekName).style.border = "black solid 1px";
 }
 
 function date_time1()
