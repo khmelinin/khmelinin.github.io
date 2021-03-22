@@ -122,6 +122,24 @@ function date_time2()
         var day = zero_first_format(current_datetime.getDate());
         var month = zero_first_format(current_datetime.getMonth()+1);
         var year = current_datetime.getFullYear();
+
+        if(month=="03" && day=="08")
+        {
+            document.getElementById("img1").src = "img/bruh_bw_08_03.png";
+        }
+        if(month=="02" && day=="23")
+        {
+            document.getElementById("img1").src = "img/bruh_bw_23_02.png";
+        }
+        if(month=="12" && day>=24 || month=="01" && day<=08)
+        {
+            document.getElementById("img1").src = "img/bruh_bw_xmas.png";
+            document.body.style.backgroundImage = "url('img/snow.gif')";
+        }
+        if(month=="10" && day>=29)
+        {
+            document.getElementById("img1").src = "img/bruh_bw_halloween.png";
+        }
         
 
         return day+"."+month+"."+year;
