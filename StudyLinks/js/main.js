@@ -104,7 +104,7 @@ function week_style(weekName){
     document.getElementById(weekName).style.textDecoration="underline";
     document.getElementById("div"+weekName).style.marginRight = "44%"
     document.getElementById("div"+weekName).style.backgroundColor="rgb(230,230,230)";
-    document.getElementById("div"+weekName).style.border = "black solid 1px";
+    document.getElementById("div"+weekName).style.border = "black dashed 1px";
 }
 
 function date_time1()
