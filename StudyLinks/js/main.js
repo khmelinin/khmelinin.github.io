@@ -8,9 +8,13 @@ function zero_first_format(value)
     }
 
 function which_week(){
-    calendar = Calendar.getInstance();
-    var day = calendar.get(Calendar.WEEK_OF_YEAR);
-    if(day%2 == 0)
+    var d0 = new Date ().getTime (),
+    d  = new Date (new Date ().getFullYear (), 0, 1),
+    d1 = d.getTime (),
+    dd = d.getDay (),
+    re = Math.floor ((d0 - d1) / 8.64e7) + (dd ? dd - 1 : 6);
+
+    if((Math.floor (re / 7) % 2) == 0)
     {
         return true;
     }
@@ -22,7 +26,7 @@ function which_week(){
 
 function selectWeek(week)
 {
-    if(!which_week)
+    if(!which_week())
     {
         document.getElementById("Week1").style.color="red";
         document.getElementById("Week1").style.textShadow= "black 1.3px 1.3px 0, black -1.3px -1.3px 0, black -1.3px 1.3px 0, black 1.3px -1.3px 0";
