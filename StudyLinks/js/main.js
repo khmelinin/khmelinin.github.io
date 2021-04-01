@@ -55,6 +55,11 @@ function selectWeek(week)
                 case 5:
                     week_style("Fri1");
                     week="Friday";
+                    document.getElementById("img1").hidden=true;
+                    document.getElementById("fridayVideo").src="videos/friday.mp4";
+                    document.getElementById("fridayVideo").autoplay="autoplay";
+                    document.getElementById("fridayVideo").loop="loop";
+                    document.getElementById("fridayVideo").preload=true;
                     break;
                 
                 
@@ -92,6 +97,11 @@ function selectWeek(week)
                 case 5:
                     week_style("Fri2");
                     week="Friday";
+                    document.getElementById("img1").hidden=true;
+                    document.getElementById("fridayVideo").src="videos/friday.mp4";
+                    document.getElementById("fridayVideo").autoplay="autoplay";
+                    document.getElementById("fridayVideo").loop="loop";
+                    document.getElementById("fridayVideo").preload=true;
                     break;
                 
                 
