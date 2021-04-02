@@ -58,6 +58,9 @@ function selectWeek(week)
                     document.getElementById("img1").hidden=true;
                     document.getElementById("fridayVideo").hidden=false;
                     document.getElementById("fridayVideo").muted=false;
+                    document.getElementById("fridayVideo").onclick = function(){
+                        this.play();
+                    }
                     break;
                 
                 
@@ -98,6 +101,9 @@ function selectWeek(week)
                     document.getElementById("img1").hidden=true;
                     document.getElementById("fridayVideo").hidden=false;
                     document.getElementById("fridayVideo").muted=false;
+                    document.getElementById("fridayVideo").onclick = function(){
+                        this.play();
+                    }
                     break;
                 
                 
