@@ -62,6 +62,11 @@ function selectWeek(week)
                         this.play();
                     }
                     break;
+
+                case 6:
+                    week_style("Sat2");
+                    week="Saturday";
+                    break;
                 
                 
                 default:
@@ -104,6 +109,11 @@ function selectWeek(week)
                     document.getElementById("fridayVideo").onclick = function(){
                         this.play();
                     }
+                    break;
+                    
+                case 6:
+                    week_style("Sat2");
+                    week="Saturday";
                     break;
                 
                 
