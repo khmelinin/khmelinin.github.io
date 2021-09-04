@@ -64,7 +64,7 @@ function selectWeek(week)
                     break;
 
                 case 6:
-                    week_style("Sat2");
+                    week_style("Sat1");
                     week="Saturday";
                     break;
                 
