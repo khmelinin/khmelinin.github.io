@@ -26,7 +26,7 @@ function which_week(){
 
 function selectWeek(week)
 {
-    if(!which_week())
+    if(which_week())
     {
         document.getElementById("Week1").style.color="red";
         document.getElementById("Week1").style.textShadow= "black 1.3px 1.3px 0, black -1.3px -1.3px 0, black -1.3px 1.3px 0, black 1.3px -1.3px 0";
